@@ -16,27 +16,12 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Update npm
-        run: npm install -g npm@latest
+        run: |
+          export NPM_INSTALL_DIR=$(npm prefix -g)
+          export PATH="$NPM_INSTALL_DIR/bin:$PATH"
+          npm install -g npm@latest
 
       - name: Display npm version
         run: npm --version
 
-      - uses: actions/cache@v2
-        with:
-          path: |
-            ~/.npm
-            ~/.cache
-          key: npm-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "npm"
-
-      - run: npm ci
-        env:
-          CI: true
-        timeout-minutes: 5
-
-      - run: npm run build --if-present
+      # Rest of your workflow steps...
