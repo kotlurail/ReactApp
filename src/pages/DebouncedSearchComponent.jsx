@@ -1,22 +1,14 @@
 // DebouncedSearchComponent.js
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  addItem,
-  clearItem,
-  fetchAllItems,
-  searchAllItems,
-} from "../redux/slices/itemSlice";
+import { searchAllItems } from "../redux/slices/itemSlice";
 const DebouncedSearchComponent = () => {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const dispatch = useDispatch();
   const Navigate = useNavigate();
-  const { loading, error, success, message } = useSelector(
-    (state) => state.item.searchItems
-  );
+  const { loading, message } = useSelector((state) => state.item.searchItems);
 
   useEffect(() => {
     let debounceTimer;

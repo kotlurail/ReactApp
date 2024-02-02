@@ -1,11 +1,6 @@
-import React from 'react'
-import { useSelector, useDispatch } from 'react-redux';
+import React from "react";
 function NotFoundPage() {
-  return (
-    <div>
-      NotFoundPage
-    </div>
-  )
+  return <div>NotFoundPage</div>;
 }
 
-export default NotFoundPage
+export default NotFoundPage;

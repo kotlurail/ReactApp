@@ -1,14 +1,9 @@
 import React, { lazy, Suspense, useState } from "react";
 import "./App.css";
 import Protected from "./components/Protected";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
 
 const AddItemPage = lazy(() => import("./pages/AddItemPage"));
 const Register = lazy(() => import("./pages/RegisterPage"));
@@ -21,7 +16,6 @@ const DebouncedSearchComponent = lazy(() =>
 );
 
 function App() {
-  const dispatch = useDispatch();
   return (
     <Router>
       <Suspense fallback={<div>Loading1devdev2dev3 .......</div>}>

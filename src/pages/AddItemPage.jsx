@@ -1,15 +1,13 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addItem, clearItem, fetchAllItems } from "../redux/slices/itemSlice";
-import { Link, useNavigate } from "react-router-dom";
+import { addItem, clearItem } from "../redux/slices/itemSlice";
+import { useNavigate } from "react-router-dom";
 // import { addItem } from '../redux/slices/itemSlice';
 
 function AddItemPage() {
   const dispatch = useDispatch();
   const Navigate = useNavigate();
-  const { loading, error, success, message } = useSelector(
-    (state) => state.item.addItemObj
-  );
+  const { success } = useSelector((state) => state.item.addItemObj);
 
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
