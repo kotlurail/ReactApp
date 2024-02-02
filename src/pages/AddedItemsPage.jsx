@@ -1,29 +1,46 @@
 // HomePage.js
-import React, { lazy, Suspense, useState,useEffect,useMemo } from "react";
-import { Link, useNavigate, } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import {logout,clearLogin,clearRegister,clearLogout,fetchuserDetails} from "../redux/slices/authSlice"
-import {fetchCartItems,clearFetchItemOfCart,addItemToCart} from "../redux/slices/cartSlice"
-import phonesData from '../data.json'; // Import your JSON file
+import React, { lazy, Suspense, useState, useEffect, useMemo } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  logout,
+  clearLogin,
+  clearRegister,
+  clearLogout,
+  fetchuserDetails,
+} from "../redux/slices/authSlice";
+import {
+  fetchCartItems,
+  clearFetchItemOfCart,
+  addItemToCart,
+} from "../redux/slices/cartSlice";
+import phonesData from "../data.json"; // Import your JSON file
 const PhoneList = lazy(() => import("../components/PhoneList"));
 
 // ... (imports)
 
 const AddedItemsPage = () => {
-  const [userEmail, setUserEmail] = useState('');
-  const [userName, setUserName] = useState('');
+  const [userEmail, setUserEmail] = useState("");
+  const [userName, setUserName] = useState("");
   // const [items,setItems]=useState([]);
-  const { loading, error, success, message } = useSelector((state) => state.auth.logout);
+  const { loading, error, success, message } = useSelector(
+    (state) => state.auth.logout
+  );
   const name = useSelector((state) => state.auth.name);
   const email = useSelector((state) => state.auth.email);
-  const { loading:fetchCartLoading, error:fetchCartError, success:fetchCartStatus, message:fetchCartItemsAll } = useSelector((state) => state.cart.fetchCartItemsStatus);
+  const {
+    loading: fetchCartLoading,
+    error: fetchCartError,
+    success: fetchCartStatus,
+    message: fetchCartItemsAll,
+  } = useSelector((state) => state.cart.fetchCartItemsStatus);
   const dispatch = useDispatch();
   const Navigate = useNavigate();
-  
-console.log(fetchCartItemsAll,"fetchItemsAll at 23")
+
+  console.log(fetchCartItemsAll, "fetchItemsAll at 23");
   useEffect(() => {
     dispatch(fetchuserDetails());
-    dispatch(fetchCartItems())
+    dispatch(fetchCartItems());
   }, [dispatch]);
 
   // If you have the user details available in the Redux state, you can directly access them
@@ -33,13 +50,12 @@ console.log(fetchCartItemsAll,"fetchItemsAll at 23")
       document.title = "Pizza Fleet";
     };
   }, []);
-  
+
   useEffect(() => {
     // Update local state when Redux state changes
     setUserEmail(email);
     setUserName(name);
-    
-  }, [email, name,fetchCartItems]);
+  }, [email, name, fetchCartItems]);
 
   useEffect(() => {
     return () => {
@@ -49,13 +65,11 @@ console.log(fetchCartItemsAll,"fetchItemsAll at 23")
     };
   }, [dispatch]);
 
-  
-
   const addItemToServer = () => {
-    Navigate('/additem');
+    Navigate("/additem");
   };
   const RedirectToHomePage = () => {
-    Navigate('/home');
+    Navigate("/home");
   };
   const handleLogout = () => {
     dispatch(logout());
@@ -88,10 +102,9 @@ console.log(fetchCartItemsAll,"fetchItemsAll at 23")
             <p>Email: {userEmail}</p>
           </div>
         )}
-        <Suspense fallback={<div>Loading...</div>}>
-        <PhoneList phones={fetchCartItemsAll} />
+        <Suspense fallback={<div>Loading123...</div>}>
+          <PhoneList phones={fetchCartItemsAll} />
         </Suspense>
-        
       </div>
     </>
   );
