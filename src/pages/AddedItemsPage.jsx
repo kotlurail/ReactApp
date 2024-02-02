@@ -78,7 +78,7 @@ const AddedItemsPage = () => {
           onClick={addItemToServer}
           className="bg-pink-500 text-white p-2 rounded hover:bg-red-600 transition duration-300 mr-2"
         >
-          Add Item
+          Add Item page
         </button>
         <button
           onClick={RedirectToHomePage}
