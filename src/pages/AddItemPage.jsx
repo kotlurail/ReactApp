@@ -140,7 +140,7 @@ function AddItemPage() {
             className={`w-full p-2 border ${
               errors.price ? "border-red-500" : "border-gray-300"
             } rounded`}
-            placeholder="Enter item price"
+            placeholder="Enter item in the place price"
           />
           {errors.price && (
             <p className="text-red-500 text-xs mt-1">{errors.price}</p>
