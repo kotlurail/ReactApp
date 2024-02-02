@@ -13,7 +13,7 @@ const PhoneCard = ({ phone }) => {
     if (success) {
       dispatch(clearFetchItemOfCart());
     }
-  }, [dispatch]);
+  }, [dispatch, success]);
 
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg m-4">

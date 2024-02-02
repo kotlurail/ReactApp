@@ -45,7 +45,7 @@ const AddedItemsPage = () => {
     // Update local state when Redux state changes
     setUserEmail(email);
     setUserName(name);
-  }, [email, name, fetchCartItems]);
+  }, [email, name]);
 
   useEffect(() => {
     return () => {

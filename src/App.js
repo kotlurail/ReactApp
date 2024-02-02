@@ -1,9 +1,7 @@
-import React, { lazy, Suspense, useState } from "react";
+import React, { lazy, Suspense } from "react";
 import "./App.css";
 import Protected from "./components/Protected";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import { useDispatch } from "react-redux";
 
 const AddItemPage = lazy(() => import("./pages/AddItemPage"));
 const Register = lazy(() => import("./pages/RegisterPage"));

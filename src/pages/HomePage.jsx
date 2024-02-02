@@ -29,7 +29,7 @@ const HomePage = () => {
   useEffect(() => {
     dispatch(fetchuserDetails());
     dispatch(fetchAllItems());
-  }, [dispatch, fetchuserDetails, fetchAllItems]);
+  }, [dispatch]);
 
   // If you have the user details available in the Redux state, you can directly access them
   useMemo(() => {
@@ -43,7 +43,7 @@ const HomePage = () => {
     // Update local state when Redux state changes
     setUserEmail(email);
     setUserName(name);
-  }, [email, name, fetchAllItems]);
+  }, [email, name]);
 
   useEffect(() => {
     return () => {

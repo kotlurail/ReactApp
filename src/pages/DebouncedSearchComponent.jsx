@@ -42,7 +42,7 @@ const DebouncedSearchComponent = () => {
     return () => {
       clearTimeout(debounceTimer); // Clear the timer on component unmount
     };
-  }, [query]);
+  }, [query, message, dispatch]);
   const redirectToHomePage = () => {
     Navigate("/home");
   };
