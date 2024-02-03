@@ -25,7 +25,7 @@ const PhoneCard = ({ phone }) => {
           onClick={handleAddToCart}
           className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition duration-300 mt-2"
         >
-          Add to Cart
+          Add to Cart mohan
         </button>
       </div>
     </div>
