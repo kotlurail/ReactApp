@@ -16,7 +16,7 @@ const DebouncedSearchComponent = lazy(() =>
 function App() {
   return (
     <Router>
-      <Suspense fallback={<div>Loading1devdev2dev3 .......</div>}>
+      <Suspense fallback={<div>Loading1devdev2dev3mohan .......</div>}>
         <Routes>
           <Route path="/" element={<Login />} />
           <Route
